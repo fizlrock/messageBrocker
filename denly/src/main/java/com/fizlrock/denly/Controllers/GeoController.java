@@ -1,7 +1,6 @@
 package com.fizlrock.denly.Controllers;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,7 +32,7 @@ public class GeoController {
     if (user.isPresent())
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Change you username. This already used.");
     else {
-      var new_user = userRepo.save(new User(username, "123456789"));
+      userRepo.save(new User(username, "123456789"));
       return ResponseEntity.ok("User created");
     }
   }
