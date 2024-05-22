@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fizlrock.denly.Domain.Friendship;
 import com.fizlrock.denly.Domain.User;
+import com.fizlrock.denly.Domain.Friendship.FriendshipState;
 import com.fizlrock.denly.Repository.FriendshipRepository;
 import com.fizlrock.denly.Repository.UserRepository;
 
@@ -52,6 +53,8 @@ public class GeoController {
       @RequestParam(required = true, name = "username") String username,
       @RequestParam(required = true, name = "friend") String friend_username) {
 
+    if (username.equals(friend_username))
+      return ResponseEntity.badRequest().body("Увы нельзя дружить с самим собой");
     var sender = userRepo.findByUsername(username);
     var receiver = userRepo.findByUsername(friend_username);
 
@@ -83,10 +86,29 @@ public class GeoController {
    * @param username - пользователь, которому был отправлен запрос
    * @param friend   - пользователь, дружба с которым подтвержается
    */
-  void confirmFriendRequest(
+  @PostMapping("/friend/confirm")
+  ResponseEntity<String> confirmFriendRequest(
       @RequestParam(name = "username", required = true) String username,
       @RequestParam(name = "friend", required = true) String friend) {
 
+    var u1 = userRepo.findByUsername(username);
+    var u2 = userRepo.findByUsername(friend);
+
+    if (u1.isEmpty())
+      return getUserNotFoundResponce(username);
+    if (u2.isEmpty())
+      return getUserNotFoundResponce(friend);
+
+    User user1 = u1.get(), user2 = u2.get();
+
+    var friendRequest = friendRepo.findBySenderIdAndReceiverId(user1.getId(), user2.getId());
+
+    if (friendRequest.isEmpty() || !friendRequest.get().getState().equals(FriendshipState.Requested))
+      return ResponseEntity.badRequest().build();
+
+    friendRequest.get().setState(FriendshipState.Confirmed);
+
+    return ResponseEntity.ok("Confirmed!");
   }
 
 }

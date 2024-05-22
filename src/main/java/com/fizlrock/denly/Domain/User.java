@@ -1,6 +1,5 @@
 package com.fizlrock.denly.Domain;
 
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -9,7 +8,6 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
@@ -23,9 +21,9 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-import jakarta.persistence.Transient;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -33,6 +31,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @Table(name = "users")
 @NoArgsConstructor
+@EqualsAndHashCode
 public class User {
 
   public User(String username, String password) {
@@ -58,7 +57,7 @@ public class User {
   protected String password;
 
   @Access(AccessType.FIELD)
-  @OneToMany(mappedBy = "sender", fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+  @OneToMany(mappedBy = "sender", fetch = FetchType.LAZY)
   protected Set<Friendship> friendships = new HashSet<>();
 
   @ElementCollection(targetClass = Report.class, fetch = FetchType.LAZY)

@@ -14,6 +14,7 @@ import jakarta.persistence.ManyToOne;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * Friendship
@@ -25,8 +26,8 @@ public class Friendship {
   }
 
   public Friendship(User sender, User receiver) {
-    this.id.senderId = sender.id;
-    this.id.receiverId = receiver.id;
+    this.id.setSenderId(sender.id);
+    this.id.setReceiverId(receiver.id);
 
     this.sender = sender;
     this.receiver = receiver;
@@ -38,6 +39,8 @@ public class Friendship {
 
   @Embeddable
   @EqualsAndHashCode
+  @Getter
+  @Setter
   public static class Id implements Serializable {
     @Column(name = "SENDER_ID")
     protected String senderId;
@@ -61,6 +64,10 @@ public class Friendship {
 
   @Enumerated(EnumType.STRING)
   protected FriendshipState state;
+
+  public void setState(FriendshipState state) {
+    this.state = state;
+  }
 
   public enum FriendshipState {
     Requested,

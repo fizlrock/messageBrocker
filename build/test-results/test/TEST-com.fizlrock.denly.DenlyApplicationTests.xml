@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.fizlrock.denly.DenlyApplicationTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-05-22T13:10:16" hostname="archlinux" time="0.144">
+<testsuite name="com.fizlrock.denly.DenlyApplicationTests" tests="6" skipped="0" failures="0" errors="0" timestamp="2024-05-22T16:45:46" hostname="archlinux" time="0.162">
   <properties/>
-  <testcase name="testRegisterUser()" classname="com.fizlrock.denly.DenlyApplicationTests" time="0.132"/>
-  <testcase name="registerUserWithRepeatUsername()" classname="com.fizlrock.denly.DenlyApplicationTests" time="0.009"/>
-  <system-out><![CDATA[17:10:14.605 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.fizlrock.denly.DenlyApplicationTests]: DenlyApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-17:10:14.725 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.fizlrock.denly.DenlyApplication for test class com.fizlrock.denly.DenlyApplicationTests
+  <testcase name="testRegisterUser()" classname="com.fizlrock.denly.DenlyApplicationTests" time="0.107"/>
+  <testcase name="confirmFriendRequest()" classname="com.fizlrock.denly.DenlyApplicationTests" time="0.009"/>
+  <testcase name="sendFriendRequest()" classname="com.fizlrock.denly.DenlyApplicationTests" time="0.014"/>
+  <testcase name="sendFriendRequestToUnknownUser()" classname="com.fizlrock.denly.DenlyApplicationTests" time="0.008"/>
+  <testcase name="sendFriendRequestFromUnknownUser()" classname="com.fizlrock.denly.DenlyApplicationTests" time="0.006"/>
+  <testcase name="registerUserWithRepeatUsername()" classname="com.fizlrock.denly.DenlyApplicationTests" time="0.006"/>
+  <system-out><![CDATA[20:45:44.155 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.fizlrock.denly.DenlyApplicationTests]: DenlyApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:45:44.269 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.fizlrock.denly.DenlyApplication for test class com.fizlrock.denly.DenlyApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -14,12 +18,12 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.5)
 
-2024-05-22T17:10:15.078+04:00  INFO 68654 --- [denly] [    Test worker] c.fizlrock.denly.DenlyApplicationTests   : Starting DenlyApplicationTests using Java 21.0.3 with PID 68654 (started by fizlrock in /home/fizlrock/data/files/backup/code_backup/hobby/zenly)
-2024-05-22T17:10:15.079+04:00  INFO 68654 --- [denly] [    Test worker] c.fizlrock.denly.DenlyApplicationTests   : No active profile set, falling back to 1 default profile: "default"
-2024-05-22T17:10:16.803+04:00  INFO 68654 --- [denly] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2024-05-22T17:10:16.803+04:00  INFO 68654 --- [denly] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2024-05-22T17:10:16.806+04:00  INFO 68654 --- [denly] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
-2024-05-22T17:10:16.833+04:00  INFO 68654 --- [denly] [    Test worker] c.fizlrock.denly.DenlyApplicationTests   : Started DenlyApplicationTests in 2.038 seconds (process running for 2.914)
+2024-05-22T20:45:44.609+04:00  INFO 144995 --- [denly] [    Test worker] c.fizlrock.denly.DenlyApplicationTests   : Starting DenlyApplicationTests using Java 21.0.3 with PID 144995 (started by fizlrock in /home/fizlrock/data/files/backup/code_backup/hobby/zenly)
+2024-05-22T20:45:44.611+04:00  INFO 144995 --- [denly] [    Test worker] c.fizlrock.denly.DenlyApplicationTests   : No active profile set, falling back to 1 default profile: "default"
+2024-05-22T20:45:46.520+04:00  INFO 144995 --- [denly] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-05-22T20:45:46.521+04:00  INFO 144995 --- [denly] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-05-22T20:45:46.524+04:00  INFO 144995 --- [denly] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2024-05-22T20:45:46.559+04:00  INFO 144995 --- [denly] [    Test worker] c.fizlrock.denly.DenlyApplicationTests   : Started DenlyApplicationTests in 2.231 seconds (process running for 3.058)
 ]]></system-out>
   <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (/home/fizlrock/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.14.13/979ce25f7d3096a2e82214ba7dc972a05ce7a171/byte-buddy-agent-1.14.13.jar)
 WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
