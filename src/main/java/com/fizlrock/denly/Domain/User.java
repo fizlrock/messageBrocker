@@ -9,11 +9,16 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
@@ -53,29 +58,32 @@ public class User {
   protected String password;
 
   @Access(AccessType.FIELD)
-  @OneToMany(mappedBy = "sender")
+  @OneToMany(mappedBy = "sender", fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
   protected Set<Friendship> friendships = new HashSet<>();
 
-  @Access(AccessType.FIELD)
-  @OneToMany(mappedBy = "user")
+  @ElementCollection(targetClass = Report.class, fetch = FetchType.LAZY)
+  @CollectionTable(name = "reports", joinColumns = @JoinColumn(name = "USER_ID"))
   protected Set<Report> reports = new HashSet<>();
 
-  @Transient
-  private String some_info;
+  // @Access(AccessType.FIELD)
+  // @OneToMany(mappedBy = "user")
 
-  public void addReport(Report r) {
-    if (r == null)
-      throw new NullPointerException("Report can't be null");
-    if (r.getUser() != null)
-      throw new IllegalStateException("Report is already assigned to user");
-    r.setUser(this);
-    reports.add(r);
-  }
+  // @Transient
+  // private String some_info;
 
-  protected void setReports(Set<Report> reports) {
-  }
+  // public void addReport(Report r) {
+  // if (r == null)
+  // throw new NullPointerException("Report can't be null");
+  // if (r.getUser() != null)
+  // throw new IllegalStateException("Report is already assigned to user");
+  // r.setUser(this);
+  // reports.add(r);
+  // }
 
-  public Set<Report> getReports() {
-    return Collections.unmodifiableSet(reports);
-  }
+  // protected void setReports(Set<Report> reports) {
+  // }
+
+  // public Set<Report> getReports() {
+  // return Collections.unmodifiableSet(reports);
+  // }
 }

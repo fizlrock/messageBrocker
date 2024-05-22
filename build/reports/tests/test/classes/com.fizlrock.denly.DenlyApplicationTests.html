@@ -23,13 +23,13 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">3</div>
+<div class="counter">2</div>
 <p>tests</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">1</div>
+<div class="counter">0</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.831s</div>
+<div class="counter">0.141s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox failures" id="successRate">
-<div class="percent">66%</div>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,40 +61,16 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Failed tests</a>
+<a href="#tab0">Tests</a>
 </li>
 <li>
-<a href="#tab1">Tests</a>
+<a href="#tab1">Standard output</a>
 </li>
 <li>
-<a href="#tab2">Standard output</a>
-</li>
-<li>
-<a href="#tab3">Standard error</a>
+<a href="#tab2">Standard error</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
-<h2>Failed tests</h2>
-<div class="test">
-<a name="testRegisterUser()"></a>
-<h3 class="failures">testRegisterUser()</h3>
-<span class="code">
-<pre>org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;
-	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at app//org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
-	at app//org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
-	at app//org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
-	at app//org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
-	at app//com.fizlrock.denly.DenlyApplicationTests.testRegisterUser(DenlyApplicationTests.java:26)
-	at java.base@21.0.2/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base@21.0.2/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base@21.0.2/java.util.ArrayList.forEach(ArrayList.java:1596)
-</pre>
-</span>
-</div>
-</div>
-<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -105,27 +81,22 @@
 </tr>
 </thead>
 <tr>
-<td class="success">contextLoads()</td>
-<td class="success">0.005s</td>
+<td class="success">registerUserWithRepeatUsername()</td>
+<td class="success">0.009s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">testDoubleRegisterUser()</td>
-<td class="success">0.029s</td>
+<td class="success">testRegisterUser()</td>
+<td class="success">0.132s</td>
 <td class="success">passed</td>
-</tr>
-<tr>
-<td class="failures">testRegisterUser()</td>
-<td class="failures">0.797s</td>
-<td class="failures">failed</td>
 </tr>
 </table>
 </div>
-<div id="tab2" class="tab">
+<div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>23:33:21.142 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.fizlrock.denly.DenlyApplicationTests]: DenlyApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-23:33:21.231 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.fizlrock.denly.DenlyApplication for test class com.fizlrock.denly.DenlyApplicationTests
+<pre>17:10:14.605 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.fizlrock.denly.DenlyApplicationTests]: DenlyApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:10:14.725 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.fizlrock.denly.DenlyApplication for test class com.fizlrock.denly.DenlyApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -135,140 +106,16 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.5)
 
-2024-05-18T23:33:21.727+04:00  INFO 224506 --- [denly] [    Test worker] c.fizlrock.denly.DenlyApplicationTests   : Starting DenlyApplicationTests using Java 21.0.2 with PID 224506 (started by fizlrock in /home/fizlrock/data/files/backup/code_backup/hobby/zenly/denly)
-2024-05-18T23:33:21.730+04:00  INFO 224506 --- [denly] [    Test worker] c.fizlrock.denly.DenlyApplicationTests   : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2024-05-18T23:33:22.450+04:00  INFO 224506 --- [denly] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-05-18T23:33:22.498+04:00  INFO 224506 --- [denly] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38 ms. Found 1 JPA repository interface.
-2024-05-18T23:33:23.031+04:00  INFO 224506 --- [denly] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-05-18T23:33:23.101+04:00  INFO 224506 --- [denly] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-18T23:33:23.145+04:00  INFO 224506 --- [denly] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-05-18T23:33:23.356+04:00  INFO 224506 --- [denly] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-05-18T23:33:23.380+04:00  INFO 224506 --- [denly] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-05-18T23:33:23.550+04:00  INFO 224506 --- [denly] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3611153f
-2024-05-18T23:33:23.552+04:00  INFO 224506 --- [denly] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-05-18T23:33:23.975+04:00  WARN 224506 --- [denly] [    Test worker] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.fizlrock.denly.Domain.Friendship
-2024-05-18T23:33:23.975+04:00  WARN 224506 --- [denly] [    Test worker] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.fizlrock.denly.Domain.Friendship
-2024-05-18T23:33:24.525+04:00  INFO 224506 --- [denly] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-Hibernate: 
-    alter table if exists friendship 
-       drop constraint if exists FK5kuaxbwscap950h164t23sgby
-2024-05-18T23:33:24.543+04:00  WARN 224506 --- [denly] [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
-2024-05-18T23:33:24.543+04:00  WARN 224506 --- [denly] [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation &quot;friendship&quot; does not exist, skipping
-Hibernate: 
-    alter table if exists friendship 
-       drop constraint if exists FKljirh3vtab8kelivnofrfyueo
-2024-05-18T23:33:24.544+04:00  WARN 224506 --- [denly] [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
-2024-05-18T23:33:24.544+04:00  WARN 224506 --- [denly] [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation &quot;friendship&quot; does not exist, skipping
-Hibernate: 
-    alter table if exists report 
-       drop constraint if exists FKq50wsn94sc3mi90gtidk0k34a
-2024-05-18T23:33:24.545+04:00  WARN 224506 --- [denly] [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
-2024-05-18T23:33:24.545+04:00  WARN 224506 --- [denly] [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation &quot;report&quot; does not exist, skipping
-Hibernate: 
-    drop table if exists friendship cascade
-2024-05-18T23:33:24.546+04:00  WARN 224506 --- [denly] [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
-2024-05-18T23:33:24.547+04:00  WARN 224506 --- [denly] [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : table &quot;friendship&quot; does not exist, skipping
-Hibernate: 
-    drop table if exists report cascade
-2024-05-18T23:33:24.548+04:00  WARN 224506 --- [denly] [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
-2024-05-18T23:33:24.548+04:00  WARN 224506 --- [denly] [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : table &quot;report&quot; does not exist, skipping
-Hibernate: 
-    drop table if exists users cascade
-2024-05-18T23:33:24.549+04:00  WARN 224506 --- [denly] [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
-2024-05-18T23:33:24.549+04:00  WARN 224506 --- [denly] [    Test worker] o.h.engine.jdbc.spi.SqlExceptionHelper   : table &quot;users&quot; does not exist, skipping
-Hibernate: 
-    create table friendship (
-        created timestamp(6),
-        receiver_id varchar(255) not null,
-        sender_id varchar(255) not null,
-        state varchar(255) check (state in ('Requested','Confirmed','Canceled')),
-        primary key (receiver_id, sender_id)
-    )
-Hibernate: 
-    create table report (
-        latitude float4,
-        longitude float4,
-        created timestamp(6),
-        id bigint not null,
-        address varchar(255),
-        type varchar(255) check (type in ('IPAddress','GPS','Other')),
-        user_id varchar(255),
-        primary key (id)
-    )
-Hibernate: 
-    create table users (
-        created timestamp(6),
-        password varchar(20) not null,
-        username varchar(20) not null unique,
-        id varchar(255) not null,
-        primary key (id)
-    )
-Hibernate: 
-    alter table if exists friendship 
-       add constraint FK5kuaxbwscap950h164t23sgby 
-       foreign key (receiver_id) 
-       references users
-Hibernate: 
-    alter table if exists friendship 
-       add constraint FKljirh3vtab8kelivnofrfyueo 
-       foreign key (sender_id) 
-       references users
-Hibernate: 
-    alter table if exists report 
-       add constraint FKq50wsn94sc3mi90gtidk0k34a 
-       foreign key (user_id) 
-       references users
-2024-05-18T23:33:24.654+04:00  INFO 224506 --- [denly] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-05-18T23:33:25.185+04:00  WARN 224506 --- [denly] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-05-18T23:33:25.573+04:00  INFO 224506 --- [denly] [    Test worker] c.fizlrock.denly.DenlyApplicationTests   : Started DenlyApplicationTests in 4.205 seconds (process running for 5.228)
-Hibernate: 
-    /* &lt;criteria&gt; */ select
-        u1_0.id,
-        u1_0.created,
-        u1_0.password,
-        u1_0.username 
-    from
-        users u1_0 
-    where
-        u1_0.username=?
-Hibernate: 
-    /* insert for
-        com.fizlrock.denly.Domain.User */insert 
-    into
-        users (created, password, username, id) 
-    values
-        (?, ?, ?, ?)
-Hibernate: 
-    /* &lt;criteria&gt; */ select
-        u1_0.id,
-        u1_0.created,
-        u1_0.password,
-        u1_0.username 
-    from
-        users u1_0 
-    where
-        u1_0.username=?
-Hibernate: 
-    /* insert for
-        com.fizlrock.denly.Domain.User */insert 
-    into
-        users (created, password, username, id) 
-    values
-        (?, ?, ?, ?)
-Hibernate: 
-    /* &lt;criteria&gt; */ select
-        u1_0.id,
-        u1_0.created,
-        u1_0.password,
-        u1_0.username 
-    from
-        users u1_0 
-    where
-        u1_0.username=?
+2024-05-22T17:10:15.078+04:00  INFO 68654 --- [denly] [    Test worker] c.fizlrock.denly.DenlyApplicationTests   : Starting DenlyApplicationTests using Java 21.0.3 with PID 68654 (started by fizlrock in /home/fizlrock/data/files/backup/code_backup/hobby/zenly)
+2024-05-22T17:10:15.079+04:00  INFO 68654 --- [denly] [    Test worker] c.fizlrock.denly.DenlyApplicationTests   : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2024-05-22T17:10:16.803+04:00  INFO 68654 --- [denly] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-05-22T17:10:16.803+04:00  INFO 68654 --- [denly] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-05-22T17:10:16.806+04:00  INFO 68654 --- [denly] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2024-05-22T17:10:16.833+04:00  INFO 68654 --- [denly] [    Test worker] c.fizlrock.denly.DenlyApplicationTests   : Started DenlyApplicationTests in 2.038 seconds (process running for 2.914)
 </pre>
 </span>
 </div>
-<div id="tab3" class="tab">
+<div id="tab2" class="tab">
 <h2>Standard error</h2>
 <span class="code">
 <pre>WARNING: A Java agent has been loaded dynamically (/home/fizlrock/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.14.13/979ce25f7d3096a2e82214ba7dc972a05ce7a171/byte-buddy-agent-1.14.13.jar)
@@ -286,7 +133,7 @@ WARNING: Dynamic loading of agents will be disallowed by default in a future rel
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.7</a> at May 18, 2024, 11:33:26 PM</p>
+<a href="http://www.gradle.org">Gradle 8.7</a> at May 22, 2024, 5:10:17 PM</p>
 </div>
 </div>
 </body>

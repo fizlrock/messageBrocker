@@ -1,37 +1,63 @@
 package com.fizlrock.denly.Domain;
 
-import java.sql.Timestamp;
+import java.io.Serializable;
+import java.util.Date;
 
-import org.hibernate.type.YesNoConverter;
-
-import jakarta.persistence.Convert;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 
 /**
  * Friendship
  */
 @Entity
 @Getter
-@Setter
 public class Friendship {
-  // @Id
-  // @GeneratedValue(strategy = GenerationType.AUTO)
-  // protected Long id;
+  private Friendship() {
+  }
+
+  public Friendship(User sender, User receiver) {
+    this.id.senderId = sender.id;
+    this.id.receiverId = receiver.id;
+
+    this.sender = sender;
+    this.receiver = receiver;
+
+    sender.getFriendships().add(this);
+    receiver.getFriendships().add(this);
+    this.state = FriendshipState.Requested;
+  }
+
+  @Embeddable
+  @EqualsAndHashCode
+  public static class Id implements Serializable {
+    @Column(name = "SENDER_ID")
+    protected String senderId;
+    @Column(name = "RECEIVER_ID")
+    protected String receiverId;
+  }
+
+  @EmbeddedId
+  protected Id id = new Id();
+
+  @Column(updatable = false)
+  protected Date created = new Date();
 
   @ManyToOne
-  @Id
+  @JoinColumn(name = "SENDER_ID", updatable = false, insertable = false)
   protected User sender;
-  @Id
-  @ManyToOne
-  protected User receiver;
 
-  protected Timestamp created;
+  @ManyToOne
+  @JoinColumn(name = "RECEIVER_ID", updatable = false, insertable = false)
+  protected User receiver;
 
   @Enumerated(EnumType.STRING)
   protected FriendshipState state;
